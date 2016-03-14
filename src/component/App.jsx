@@ -3,7 +3,12 @@
  */
 import React from 'react';
 
-import HelloWorld from '../component/hello-world/HelloWrold.jsx'
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+
+import Demo1 from '../component/demo/Demo1.jsx';
+
+
 
 class App extends React.Component {
 
@@ -11,9 +16,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <HelloWorld />
+               <Demo1 />
             </div>
         );
     }
 }
-export default App;
+
+export default DragDropContext(HTML5Backend)(App);
