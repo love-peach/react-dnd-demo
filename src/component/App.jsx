@@ -1,25 +1,18 @@
 /**
  * Created by peach on 16-3-14.
  */
-import React from 'react';
+import React, { Component } from 'react';
+import Container1 from '../component/demo-dustbin/Container.jsx';
 
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
-
-import Demo1 from '../component/demo/Demo1.jsx';
-
-
-
-class App extends React.Component {
-
+class App extends Component {
 
     render() {
         return (
             <div>
-               <Demo1 />
+                <Container1 />
             </div>
         );
     }
 }
 
-export default DragDropContext(HTML5Backend)(App);
+export default App;
