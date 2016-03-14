@@ -3,17 +3,13 @@
  */
 import React from 'react';
 
-import HelloWorld from '../component/hello-world/HelloWrold.jsx'
-
-class App extends React.Component {
-
-
+class HelloWrold extends React.Component {
     render() {
         return (
             <div>
-                <HelloWorld />
+                <p>hello world!</p>
             </div>
         );
     }
 }
-export default App;
+export default HelloWrold;
