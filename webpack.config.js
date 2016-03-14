@@ -1,9 +1,16 @@
 /**
  * Created by peach on 16-3-14.
  */
+var join = require("path").join;
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
-
+/*
+ * babel参数
+ * */
+var babelQuery = {
+    presets: ['es2015', 'react', 'stage-0'],
+    plugins: ['add-module-exports', 'typecheck']
+};
 module.exports = {
     entry: {
         'index': './src/entry/index.jsx'
@@ -14,12 +21,20 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['', '.jsx', '.less'],
+        modulesDirectories: ['node_modules', (0, join)(__dirname, './node_modules')],
+        extensions: ['', '.js', '.jsx', 'less'],
     },
     module: {
         loaders: [
             {
-                test: /\.jsx$/, loader: 'babel!jsx?harmony'
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: babelQuery
+            }, {
+                test: /\.jsx$/,
+                loader: 'babel',
+                query: babelQuery
             }
         ]
     },

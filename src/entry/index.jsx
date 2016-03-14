@@ -6,4 +6,4 @@ import ReactDOM from 'react-dom';
 
 import App from '../component/App.jsx';
 
-reactDOM.render(<App />,document.getElementById('reactDnd'));
+ReactDOM.render(<App />,document.getElementById('reactDnd'));
