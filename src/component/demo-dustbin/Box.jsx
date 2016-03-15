@@ -18,14 +18,20 @@ const style = {
 
 const boxSpec = {
     beginDrag(props) {
-        console.log(props.name+' is dragging');
         return {
-            id: props.id,
-            content: props.content
-        }
+            name: props.name,
+            type: ItemTypes.BOX
+        };
     },
     endDrag(props,monitor) {
-        console.log(props.name+'was down');
+        const item = monitor.getItem();
+        const dropResult = monitor.getDropResult();
+
+        if (dropResult) {
+            console.log( // eslint-disable-line no-alert
+                `You dropped ${item.name} into ${dropResult.name}!`
+            );
+        }
     }
 };
 

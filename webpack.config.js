@@ -37,16 +37,11 @@ module.exports = {
                 loader: 'babel',
                 query: babelQuery
             },{
-                test: /\.less$/,
-                loader: 'babel',
-                query: babelQuery
-            },{
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css?sourceMap&-restructuring!' + 'autoprefixer-loader')
-            },
-            {
+                loader: "style!css"
+            },{
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('css?sourceMap!' + 'autoprefixer-loader!' + 'less?{"sourceMap":true,"modifyVars":{}}')
+                loader: "style!css!less"
             }
         ]
     },
